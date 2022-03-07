@@ -41,6 +41,7 @@ namespace HeartStoneAP
 
             Console.SetCursorPosition(0, Console.WindowHeight);
             Console.ReadLine();
+
         }
     }
 }
