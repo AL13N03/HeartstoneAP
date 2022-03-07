@@ -74,5 +74,20 @@ namespace Hearstone.Classes
         public TierType Tier { get; set; }
         public CategoryType TribeType { get; set; }
         public string ImagePath { get; set; }
+
+        public Minion Summon() 
+        {
+            Minion toSpawn = new Minion();
+            toSpawn.Abilities = Abilities;
+            toSpawn.Attack = Attack;
+            toSpawn.ActualHealth = Attack;
+            toSpawn.ActualHealth = MaxHealth;
+            toSpawn.ImagePath = ImagePath;
+            toSpawn.MaxHealth = MaxHealth;
+            toSpawn.Tier = Tier;
+            toSpawn.Title = "M_"+Title;
+            toSpawn.TribeType = TribeType;
+            return toSpawn;
+        }
     }
 }

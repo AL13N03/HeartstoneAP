@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Hearstone.Classes
 {
-    class Minion
+    class Minion: Card
     {
+        public int ActualHealth { get; set; }
+        public void DoAttack(Minion target)
+        {
+            target.ActualHealth -= Attack;
+            ActualHealth -= target.Attack;
+        }
+
+
     }
 }
