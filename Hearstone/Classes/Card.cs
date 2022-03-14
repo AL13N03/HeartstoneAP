@@ -14,6 +14,13 @@ namespace Hearstone.Classes
     //Bron: https://playhearthstone.com/en-us/cards
     class Card
     {
+        public Card(string inTitle, TierType inTier)
+        {
+            Title = inTitle;
+            Tier = inTier;
+            //TODO!
+        }
+
         public string Title { get; set; }
         public string[] Abilities { get; set; } //Todo: dit zal een klasse Ability vereisen
         internal void Draw(int x, int y)
@@ -59,6 +66,9 @@ namespace Hearstone.Classes
             else Console.Write(Title);
         }
         private int attack;
+        private string inTitle;
+        private TierType inTier;
+
         public int Attack 
         {
             get { return attack; }

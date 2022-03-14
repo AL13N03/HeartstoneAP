@@ -8,7 +8,32 @@ namespace Hearstone.Classes
 {
     class Minion: Card
     {
-        public int ActualHealth { get; set; }
+        public Minion(string inTitle, TierType inTier, int actualHealth) : base(inTitle, inTier)
+        {
+            ActualHealth = actualHealth;
+        }
+        private int actualHealth;
+        public int ActualHealth
+        {
+            get
+            {
+                return actualHealth;
+            }
+            set
+            {
+                actualHealth = value;
+                if (actualHealth <= 0)
+                {
+                    IsDead = true;
+                }
+                else
+                {
+                    IsDead = false; //TODO: kan problemen geven
+                }
+            }
+        }
+
+        public bool IsDead { get; set; } = false;
         public void DoAttack(Minion target)
         {
             target.ActualHealth -= Attack;
