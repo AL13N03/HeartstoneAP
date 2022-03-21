@@ -14,11 +14,20 @@ namespace Hearstone.Classes
     //Bron: https://playhearthstone.com/en-us/cards
     class Card
     {
-        public Card(string inTitle, TierType inTier)
+        public Card(string inTitle, TierType inTier, int inMaxHealth, int inAttack, CategoryType inTribeType, string[] inAbilities)
         {
             Title = inTitle;
             Tier = inTier;
-            //TODO!
+            MaxHealth = inMaxHealth;
+            Attack = inAttack;
+            TribeType = inTribeType;
+            Abilities = inAbilities;
+        }
+
+        public Card(string inTitle, TierType inTier)
+        {
+            this.inTitle = inTitle;
+            this.inTier = inTier;
         }
 
         public string Title { get; set; }
@@ -87,7 +96,7 @@ namespace Hearstone.Classes
 
         public Minion Summon() 
         {
-            Minion toSpawn = new Minion();
+            Minion toSpawn = new Minion(Title, Tier, MaxHealth);
             toSpawn.Abilities = Abilities;
             toSpawn.Attack = Attack;
             toSpawn.ActualHealth = Attack;

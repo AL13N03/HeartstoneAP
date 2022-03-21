@@ -31,7 +31,7 @@ namespace Hearstone.Classes
                     IsDead = false; //TODO: kan problemen geven
                 }
             }
-        }
+        }//Todo maak fullprop + IsDood
 
         public bool IsDead { get; set; } = false;
         public void DoAttack(Minion target)

@@ -1,5 +1,6 @@
 ﻿using Hearstone.Classes;
 using System;
+using System.Collections.Generic;
 
 namespace HeartStoneAP
 {
@@ -7,37 +8,28 @@ namespace HeartStoneAP
     {
         static void Main(string[] args)
         {
+            Card myFirstCard = new Card("Rockpool Hunter", TierType.Tier1, 3, 2, CategoryType.Murloc, new string[] { "BattleCry: Give a friendly Murloc +1/+1" }); //PlayerA
+            //myFirstCard.Draw(5, 5);
 
-            Card myFirstCard = new Card("Rockpool Hunter", TierType.Tier1); //PlayerA
-            myFirstCard.MaxHealth = 3;
-            myFirstCard.Attack = 2;
-            myFirstCard.TribeType = CategoryType.Murloc;
-            myFirstCard.Abilities = new string[] { "BattleCry: Give a friendly Murloc +1/+1" };
-            myFirstCard.Draw(5, 5);
+            Card mySecondCard = new Card("Nathrezim Overseer", TierType.Tier2, 4, 2, CategoryType.Demon, new string[] { "BattleCry: Give a friendly Demon +2/+2" }); //PlayerB
+            //mySecondCard.Draw(20, 8);
 
-            Card mySecondCard = new Card("Nathrezim Overseer", TierType.Tier2); //PlayerB
-            mySecondCard.MaxHealth = 4;
-            mySecondCard.Attack = 2;
-            mySecondCard.TribeType = CategoryType.Demon;
-            mySecondCard.Abilities = new string[] { "BattleCry: Give a friendly Demon +2/+2" };
-            mySecondCard.Draw(20, 8);
+            Player humanPlayer = new Player("Raf");
+            humanPlayer.Deck.Add(myFirstCard);
+            humanPlayer.Deck.Add(myFirstCard);
+            humanPlayer.Deck.Add(myFirstCard);
+            humanPlayer.ShowDeck(2);
 
-            Console.Clear();
-            Minion minionPlayerA= myFirstCard.Summon();
-            Minion minionPlayerB = mySecondCard.Summon();
 
-            minionPlayerA.Draw(1, 5);
-            minionPlayerB.Draw(1, 20);
-            Console.SetCursorPosition(1, 1);
-            Console.WriteLine(minionPlayerA.ActualHealth);
-            minionPlayerA.DoAttack(minionPlayerB);
-            Console.SetCursorPosition(1, 2);
-            Console.WriteLine(minionPlayerA.ActualHealth);
-            minionPlayerA.DoAttack(minionPlayerB);
+            Player aiPlayer = new Player("AI");
+            aiPlayer.Deck.Add(mySecondCard);
+            aiPlayer.Deck.Add(mySecondCard);
+            aiPlayer.Deck.Add(mySecondCard);
+            aiPlayer.Deck.Add(mySecondCard);
+            aiPlayer.Deck.Add(mySecondCard);
+            aiPlayer.ShowDeck(20);
 
-            Console.SetCursorPosition(0, Console.WindowHeight);
-            Console.ReadLine();
-
+            Console.ReadKey();
         }
     }
 }
